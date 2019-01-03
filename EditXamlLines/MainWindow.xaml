@@ -4,9 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EditXamlLines"
+        xmlns:dd="urn:gong-wpf-dragdrop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="MinWidth" Value="150"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Button" Click="Button_Click" Margin="5"/>
+                <Button x:Name="GetTextBox" Content="Parse from Textbox" Click="GetTextBox_Click" Margin="5"/>
+                <Button x:Name="GetClipboard" Content="Parse from Clipboard" Click="GetClipboard_Click" Margin="5"/>
+                <Button x:Name="RewriteXaml" Content="Rewrite Xaml" Click="RewriteXaml_Click" Margin="5"/>
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel >
+            <!--<Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>-->
+            <TextBlock Text="{Binding SelectedIndex, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="40" Background="Beige"/>
+            <TextBox x:Name="TbXamlSource" Text="{Binding XamlSource, Mode=TwoWay,UpdateSourceTrigger=LostFocus}" MinWidth="160" MinHeight="300" Background="FloralWhite" MaxLines="50" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding GridItems,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedGridItems}"
+                  SelectedIndex="{Binding SelectedIndex}"
+                  RowEditEnding="DataGrid_RowEditEnding"
+                  dd:DragDrop.IsDragSource="True"
+                  dd:DragDrop.IsDropTarget="True"
+                  dd:DragDrop.DropHandler="{Binding}">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Binding="{Binding GridColumn,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
