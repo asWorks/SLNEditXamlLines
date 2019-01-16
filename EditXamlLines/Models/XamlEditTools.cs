@@ -21,8 +21,8 @@ namespace EditXamlLines.Models
                 if (value != _XamlSource)
                 {
                     _XamlSource = value;
-                   OnPropertyChanged("XamlSource");
-                    
+                    OnPropertyChanged("XamlSource");
+
                 }
             }
         }
@@ -125,17 +125,16 @@ namespace EditXamlLines.Models
 
         public void CreateGridItems()
         {
-             while (xamlitems.Count >= 2)
+            while (xamlitems.Count >= 2)
             {
                 var res = new GridItem(xamlitems);
                 GridItems.Add(res);
             }
 
-         }
+        }
 
         public void ReOrderItems()
         {
-            // GridItems = new ObservableCollection<GridItem>(GridItems.OrderBy(n => n.GridRow));
             foreach (var item in GridItems)
             {
                 item.GridRow = GridItems.IndexOf(item);
@@ -197,7 +196,7 @@ namespace EditXamlLines.Models
             StringBuilder sb = new StringBuilder();
             foreach (var item in GridItems)
             {
-               
+
                 List<XamlItem> xamlitems = new List<XamlItem>();
                 xamlitems.Add(item.LabelItem);
                 xamlitems.Add(item.ControlItem);
@@ -209,11 +208,13 @@ namespace EditXamlLines.Models
                     sb.Append(" ");
                     foreach (var prop in xi.PropertyList)
                     {
-                        sb.Append(prop.PropertyType);
-                        sb.Append("=");
-                        sb.Append("\"" + prop.PropertyValue + "\"");
-                        sb.Append(" ");
-                 
+                        //sb.Append(prop.PropertyType);
+                        //sb.Append("=");
+                        //sb.Append("\"" + prop.PropertyValue + "\"");
+                        //sb.Append(" ");
+
+                        sb.Append(prop.GetProperty());
+
                     }
                     sb.Append("/>");
                     sb.AppendLine();

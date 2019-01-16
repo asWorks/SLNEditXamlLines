@@ -13,5 +13,16 @@ namespace EditXamlLines.Models
         public string PropertyValue { get; set; }
 
         public bool ReWrite { get; set; }
+
+        public string GetProperty()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(PropertyType);
+            sb.Append("=");
+            sb.Append("\"" + PropertyValue + "\"");
+            sb.Append(" ");
+
+            return sb.ToString();
+        }
     }
 }
