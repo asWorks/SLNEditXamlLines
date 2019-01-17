@@ -1,65 +1,65 @@
-﻿using Caliburn.Micro;
-using System.ComponentModel.Composition;
-using $projectname$.EventMessages;
+﻿//using Caliburn.Micro;
+//using System.ComponentModel.Composition;
+//using $projectname$.EventMessages;
 
-namespace $rootnamespace$
-{
-    [Export(typeof(I$safeitemname$))]
-public class $safeitemname$ : Screen, I$safeitemname$, IHandle<EventMessages.EventMessage>
-{
-    #region "Private Fields"
-    private readonly IEventAggregator _events;
-    private IExampleViewModel exampleVModel;
+//namespace $rootnamespace$
+//{
+//    [Export(typeof(I$safeitemname$))]
+//public class $safeitemname$ : Screen, I$safeitemname$, IHandle<EventMessages.EventMessage>
+//{
+//    #region "Private Fields"
+//    private readonly IEventAggregator _events;
+//    private IExampleViewModel exampleVModel;
 
-    #endregion
-
-
-    #region "Constructors"
-    [ImportingConstructor]
-    public $safeitemname$(IExampleViewModel exampleVM,
-                   IEventAggregator events)
-    {
-        _events = events;
-        events.Subscribe(this);
-
-        exampleVModel = exampleVM;
-
-    }
+//    #endregion
 
 
-    #endregion
+//    #region "Constructors"
+//    [ImportingConstructor]
+//    public $safeitemname$(IExampleViewModel exampleVM,
+//                   IEventAggregator events)
+//    {
+//        _events = events;
+//        events.Subscribe(this);
+
+//        exampleVModel = exampleVM;
+
+//    }
+
+
+//    #endregion
 
 
 
-    #region "Properties"
-    //##################
+//    #region "Properties"
+//    //##################
 
-    #endregion
+//    #endregion
 
-    #region "Methods"
-    //##################
+//    #region "Methods"
+//    //##################
 
-    #endregion
+//    #endregion
 
-    #region "CallsFromView"
-    //##################
+//    #region "CallsFromView"
+//    //##################
 
-    #endregion
+//    #endregion
 
-    #region "Eventhandlers"
-    //##################
+//    #region "Eventhandlers"
+//    //##################
 
-    public void Handle(EventMessages.EventMessage message)
-    {
-        throw new System.NotImplementedException();
-    }
+//    public void Handle(EventMessages.EventMessage message)
+//    {
+//        throw new System.NotImplementedException();
+//    }
 
-    #endregion
+//    #endregion
 
-}
+//}
 
-}
+//}
 
-public interface I$safeitemname$
-    {
-    }
+//public interface I$safeitemname$
+//    {
+//    }

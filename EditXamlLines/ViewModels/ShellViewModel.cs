@@ -1,4 +1,4 @@
-﻿using EditXamlLines.Events;
+﻿using EditXamlLines.EventMessages;
 using EditXamlLines.Interfaces;
 using Caliburn.Micro;
 using System;
@@ -13,7 +13,7 @@ using EditXamlLines.Models;
 namespace EditXamlLines.ViewModels
 {
     [Export(typeof(IShellViewModel))]
-    public class ShellViewModel : Conductor<object>, IShellViewModel, IHandle<Events.EventMessage>
+    public class ShellViewModel : Conductor<object>, IShellViewModel, IHandle<EventMessage>
     {
 
      
